@@ -1,0 +1,6 @@
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^support\.villaruz\.com\.ph$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.support\.villaruz\.com\.ph$
+RewriteRule ^/?$ "https\:\/\/villaruz\.com\.ph\/vvcosticket" [R=301,L]
+
