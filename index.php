@@ -21,8 +21,6 @@ $section = 'home';
 require(CLIENTINC_DIR.'header.inc.php');
 ?>
 <div id="landing_page">
-<?php include CLIENTINC_DIR.'templates/sidebar.tmpl.php'; ?>
-<div class="main-content">
 <?php
 if ($cfg && $cfg->isKnowledgebaseEnabled()) { ?>
 <div class="search-form">
@@ -31,7 +29,6 @@ if ($cfg && $cfg->isKnowledgebaseEnabled()) { ?>
     <input type="text" name="q" class="search" placeholder="<?php echo __('Search our knowledge base'); ?>"/>
     <button type="submit" class="green button"><?php echo __('Search'); ?></button>
     </form>
-</div>
 <?php } ?>
 <div class="thread-body">
 <?php
@@ -40,6 +37,8 @@ if ($cfg && $cfg->isKnowledgebaseEnabled()) { ?>
     else
         echo  '<h1>'.__('Welcome to the Support Center').'</h1>';
     ?>
+
+    
     </div>
 </div>
 <div class="clear"></div>

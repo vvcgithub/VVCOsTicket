@@ -62,6 +62,7 @@ if (osTicket::is_ie())
     <link rel="icon" type="image/png" href="<?php echo ROOT_PATH ?>images/oscar-favicon-16x16.png" sizes="16x16" />
 
     <!-- BootstrapCDN JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="<?php echo ROOT_PATH; ?>js/jquery-3.4.0.min.js?cba6035"></script>
@@ -100,7 +101,6 @@ if (osTicket::is_ie())
     ?>
 </head>
 <body>
-    <div id="container">
         <?php
         if($ost->getError())
             echo sprintf('<div class="error_bar">%s</div>', $ost->getError());
@@ -152,13 +152,15 @@ if (($all_langs = Internationalization::getConfiguredSystemLanguages())
 } ?>
             </p>
             </div>
-            <a class="pull-left" id="logo" href="<?php echo ROOT_PATH; ?>index.php"
-            title="<?php echo __('Support Center'); ?>">
+                <a class="pull-left" id="logo" href="<?php echo ROOT_PATH; ?>index.php"
+                    title="<?php echo __('Support Center'); ?>">
                 <span class="valign-helper"></span>
-                <img src="<?php echo ROOT_PATH; ?>logo.php" border=0 alt="<?php
-                echo $ost->getConfig()->getTitle(); ?>">
-            </a>
         </div>
+        <header>           
+                <img id="header" class="img-responsive" src="<?php echo ROOT_PATH; ?>logo.php" alt="<?php
+                        echo $ost->getConfig()->getTitle(); ?>">
+                </a>                      
+        </header>
         <div class="clear"></div>
         <?php
         if($nav){ ?>
