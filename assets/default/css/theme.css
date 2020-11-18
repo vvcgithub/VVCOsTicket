@@ -11,10 +11,12 @@ header{
 }
 body {
   margin: 0;
+  padding: 0;
   font-size: 14px;
   line-height: 1.231;
   padding: 0;
   overflow-x: hidden;
+  margin-bottom:50px;
 }
 body,
 input,
@@ -123,9 +125,7 @@ a, .link {
   margin-bottom: 1px;
 }
 a:hover, .link:hover {
-    border-bottom: 1px dotted #0072bc;
-    margin-bottom: 0;
-    cursor: pointer;
+   text-decoration: none;
 }
 h1 {
   color: #00AEEF;
@@ -303,6 +303,14 @@ h2, .subject {
   -moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
 }
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 11px;
+  width: auto;
+}
 #header {
   position: relative;
   height: 71px;
@@ -313,7 +321,7 @@ h2, .subject {
 }
 #header #logo img {
   max-height: 65px;
-  max-width: 380px;
+  max-width: 100px;
   width: auto;
   height: auto;
   vertical-align: middle;
@@ -328,8 +336,13 @@ h2, .subject {
   margin: 0;
   padding: 10px 0 0;
 }
+.navbar{
+  border-bottom: 4px solid #d8b54d;
+  background:-webkit-linear-gradient(top, #fff, rgba(36, 97, 183, 0.19));
+}
+
 #nav {
-  margin: 0 20px;
+  margin: 0 ;
   padding: 2px 10px;
   height: 20px;
   /* background: url('../images/nav_bg.png') top left repeat-x; */
@@ -364,7 +377,7 @@ h2, .subject {
 
 @media screen and (max-width: 992px) {
 	#nav li a { 
-	display: block;
+	display: list-item;
 	width: auto;
 	height: 30px;
 	line-height: 30px;
@@ -382,7 +395,7 @@ h2, .subject {
 }
 
 .rtl #nav li a {
-  background-position: right center;
+  /* background-position: right center; */
   background-position: calc(100% - 10px) center;
   padding-left: 10px;
   padding-right: 32px;
@@ -414,22 +427,29 @@ h2, .subject {
   background-image: url('../images/icons/tix.png');
 }
 #content {
-  padding: 20px 0;
+  padding: 10px 0;
   margin: 0 20px;
-  margin-top: 50px;
+  margin-top: 10px;
   height: auto !important;
   height: 350px;
   min-height: 350px;
 }
 #footer {
-  text-align: center;
-  font-size: 11px;
-  color: #333;
+    position: fixed;
+    height: 50px;
+    background-color: #466d9d;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+    color: #ffffff;
 }
+
 #footer a {
   color: #333;
 }
-#footer p {
+#footer div {
   margin: 10px 0 0 0;
 }
 #footer #poweredBy {
@@ -462,6 +482,8 @@ h2, .subject {
 }
 #landing_page h1, #landing_page h2, #landing_page h3 {
     margin-bottom: 10px;
+    font-weight: bold;
+    color: #0054a6;
 }
 /* Landing page FAQ not yet implemented. */
 #faq {

@@ -37,10 +37,59 @@ if ($cfg && $cfg->isKnowledgebaseEnabled()) { ?>
     else
         echo  '<h1>'.__('Welcome to the Support Center').'</h1>';
     ?>
-
-    
     </div>
 </div>
+
+<br/>
+<br/>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                  <?php echo __('Open a New Ticket'); ?>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <p>
+                    <?php echo __('Please provide as much detail as possible so we can best assist you.'); ?>
+                    <p>
+                        <p style="text-align:center;">
+                            <a href="
+                                <?php echo ROOT_PATH; ?>open.php" class="btn btn-success btn-lg" title="
+                                <?php echo __('Open a New Ticket'); ?>.">
+                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                <?php echo __('Open a New Ticket'); ?>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <?php echo __('Check Ticket Status'); ?>
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>
+                            <?php echo __('We provide archives and history of all your current and past support requests complete with responses.'); ?>
+                        </p>
+                        <p style="text-align:center;">
+                            <a href="
+                                <?php if(is_object($thisclient)) { echo ROOT_PATH . 'tickets.php';} else { echo ROOT_PATH . 'view.php'; } ?>" class="btn btn-info btn-lg" title="
+                                <?php echo __('Check Ticket Status'); ?>.">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                <?php echo __('Check Ticket Status'); ?>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 <div class="clear"></div>
 
 <div>
