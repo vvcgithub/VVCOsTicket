@@ -41,7 +41,7 @@ define('ADMIN_EMAIL','esleonardo@villaruz.com.ph');
 define('DBTYPE','mysql');
 define('DBHOST','localhost');
 define('DBNAME','villaruz_ostdb');
-define('DBUSER','root');
+define('DBUSER','villaruz_ostdb');
 define('DBPASS','Password1');
 
 # Table prefix

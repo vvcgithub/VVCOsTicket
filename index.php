@@ -20,25 +20,33 @@ require_once INCLUDE_DIR . 'class.page.php';
 $section = 'home';
 require(CLIENTINC_DIR.'header.inc.php');
 ?>
-<div id="landing_page">
-<?php
-if ($cfg && $cfg->isKnowledgebaseEnabled()) { ?>
-<div class="search-form">
-    <form method="get" action="kb/faq.php">
-    <input type="hidden" name="a" value="search"/>
-    <input type="text" name="q" class="search" placeholder="<?php echo __('Search our knowledge base'); ?>"/>
-    <button type="submit" class="green button"><?php echo __('Search'); ?></button>
-    </form>
-<?php } ?>
-<div class="thread-body">
-<?php
-    if($cfg && ($page = $cfg->getLandingPage()))
-        echo $page->getBodyWithImages();
-    else
-        echo  '<h1>'.__('Welcome to the Support Center').'</h1>';
-    ?>
+
+<div id="landing_page"> 
+    <?php
+    if ($cfg && $cfg->isKnowledgebaseEnabled()) { ?>
+    <div class="search-form">
+        <form method="get" action="kb/faq.php">
+        <input type="hidden" name="a" value="search"/>
+        <input type="text" name="q" class="search" placeholder="<?php echo __('Search our knowledge base'); ?>"/>
+        <button type="submit" class="green button"><?php echo __('Search'); ?></button>
+        </form>
+    <?php } ?>
+
+<!-- h1, p body -->
+<div class="img-container">
+    <div class="homepage">
+        <img src="/vvcosticket/assets/default/images/blue_bg.png" alt="vvc" style="width:100%; height:300px;">
+        <div class="homepage-centered">
+            <?php
+                if($cfg && ($page = $cfg->getLandingPage()))
+                    echo $page->getBodyWithImages();
+                else
+                    echo  '<h1>'.__('Welcome to the Support Center').'</h1>';
+            ?>
+        </div>
     </div>
 </div>
+<!-- h1, p body -->
 
 <br/>
 <br/>

@@ -47,10 +47,8 @@ if (osTicket::is_ie())
 	<link rel="stylesheet" href="<?php echo ROOT_PATH; ?>css/osticket.css?cba6035" media="screen"/>
     <link rel="stylesheet" href="<?php echo ASSETS_PATH; ?>css/theme.css?cba6035" media="screen"/>
     <link rel="stylesheet" href="<?php echo ASSETS_PATH; ?>css/print.css?cba6035" media="print"/>
-    <link rel="stylesheet" href="<?php echo ROOT_PATH; ?>scp/css/typeahead.css?cba6035"
-         media="screen" />
-    <link type="text/css" href="<?php echo ROOT_PATH; ?>css/ui-lightness/jquery-ui-1.10.3.custom.min.css?cba6035"
-        rel="stylesheet" media="screen" />
+    <link rel="stylesheet" href="<?php echo ROOT_PATH; ?>scp/css/typeahead.css?cba6035" media="screen" />
+    <link type="text/css" href="<?php echo ROOT_PATH; ?>css/ui-lightness/jquery-ui-1.10.3.custom.min.css?cba6035" rel="stylesheet" media="screen" />
     <link rel="stylesheet" href="<?php echo ROOT_PATH ?>css/jquery-ui-timepicker-addon.css?cba6035" media="all"/>
     <link rel="stylesheet" href="<?php echo ROOT_PATH; ?>css/thread.css?cba6035" media="screen"/>
     <link rel="stylesheet" href="<?php echo ROOT_PATH; ?>css/redactor.css?cba6035" media="screen"/>
@@ -102,17 +100,64 @@ if (osTicket::is_ie())
     ?>
 </head>
 <body>
+    <div class="top-bar">
+        <div class="topbar-right">
+            <p>
+                <?php
+                    if ($thisclient && is_object($thisclient) && $thisclient->isValid()
+                        && !$thisclient->isGuest()) {
+                        echo Format::htmlchars($thisclient->getName()).'&nbsp;|';
+                        ?>
+                    <a href="<?php echo ROOT_PATH; ?>profile.php"><?php echo __('Profile'); ?></a> |
+                    <a href="<?php echo ROOT_PATH; ?>tickets.php"><?php echo sprintf(__('Tickets <b>(%d)</b>'), $thisclient->getNumTickets()); ?></a> -
+                    <a href="<?php echo $signout_url; ?>"><?php echo __('Sign Out'); ?></a>
+                <?php
+                    } elseif($nav) {
+                        if ($cfg->getClientRegistrationMode() == 'public') { ?>
+                            <?php echo __('Guest User'); ?> | <?php
+                        }
+                        if ($thisclient && $thisclient->isValid() && $thisclient->isGuest()) { ?>
+                            <a href="<?php echo $signout_url; ?>"><?php echo __('Sign Out'); ?></a><?php
+                        }
+                        elseif ($cfg->getClientRegistrationMode() != 'disabled') { ?>
+                            <a class="sign-in-link" href="<?php echo $signin_url; ?>"><?php echo __('Sign In'); ?></a>
+                <?php
+                    }
+                } ?>
+            </p>
+            <p>
+                <?php
+                if (($all_langs = Internationalization::getConfiguredSystemLanguages())
+                    && (count($all_langs) > 1)
+                ) {
+                    $qs = array();
+                    parse_str($_SERVER['QUERY_STRING'], $qs);
+                    foreach ($all_langs as $code=>$info) {
+                        list($lang, $locale) = explode('_', $code);
+                        $qs['lang'] = $code;
+                ?>
+                    <a class="flag flag-<?php echo strtolower($info['flag'] ?: $locale ?: $lang); ?>"
+                        href="?<?php echo http_build_query($qs);
+                        ?>" title="<?php echo Internationalization::getLanguageDescription($code); ?>">&nbsp;</a>
+                <?php }
+                } ?>
+            </p>       
+        </div>    
+    </div>
 
-<nav class="navbar navbar-expand-lg navbar-light">
-  <a class="navbar-brand" href="index.php">
-      <img class="img-responsive" src="<?php echo ROOT_PATH; ?>logo.php" alt="<?php
-                        echo $ost->getConfig()->getTitle(); ?>">
-   </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-<div class="collapse navbar-collapse" id="navbarNav">
-     <?php
+    <nav class="navbar navbar-expand-md navbar-light">
+        <a class="navbar-brand" href="index.php">
+            <img class="" src="<?php echo ROOT_PATH; ?>logo.php" alt="<?php
+                    echo $ost->getConfig()->getTitle(); ?>">
+        </a>            
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <br/>
+
+    <div class="navbar-collapse collapse" id="navbarNav">
+        <?php
         if($nav){ ?>
         <ul id="nav">
             <?php
@@ -120,32 +165,9 @@ if (osTicket::is_ie())
                 foreach($navs as $name =>$nav) {
                     echo sprintf('<li><a class="%s %s" href="%s">%s</a></li>%s',$nav['active']?'active':'',$name,(ROOT_PATH.$nav['href']),$nav['desc'],"\n");
                 }
-            } ?>
-        <div class="pull-right flush-right">
-            <p>
-             <?php
-                if ($thisclient && is_object($thisclient) && $thisclient->isValid()
-                    && !$thisclient->isGuest()) {
-                 echo Format::htmlchars($thisclient->getName()).'&nbsp;|';
-                 ?>
-                <a href="<?php echo ROOT_PATH; ?>profile.php"><?php echo __('Profile'); ?></a> |
-                <a href="<?php echo ROOT_PATH; ?>tickets.php"><?php echo sprintf(__('Tickets <b>(%d)</b>'), $thisclient->getNumTickets()); ?></a> -
-                <a href="<?php echo $signout_url; ?>"><?php echo __('Sign Out'); ?></a>
-            <?php
-            } elseif($nav) {
-                if ($cfg->getClientRegistrationMode() == 'public') { ?>
-                    <?php echo __('Guest User'); ?> | <?php
-                }
-                if ($thisclient && $thisclient->isValid() && $thisclient->isGuest()) { ?>
-                    <a href="<?php echo $signout_url; ?>"><?php echo __('Sign Out'); ?></a><?php
-                }
-                elseif ($cfg->getClientRegistrationMode() != 'disabled') { ?>
-                    <a href="<?php echo $signin_url; ?>"><?php echo __('Sign In'); ?></a>
-            <?php
-                }
-            } ?>
-            </p>
-            <p>
+        } ?>
+    <div class="pull-right flush-right">      
+         <p>
             <?php
             if (($all_langs = Internationalization::getConfiguredSystemLanguages())
                 && (count($all_langs) > 1)
@@ -160,11 +182,11 @@ if (osTicket::is_ie())
                     href="?<?php echo http_build_query($qs);
                     ?>" title="<?php echo Internationalization::getLanguageDescription($code); ?>">&nbsp;</a>
             <?php }
-        } ?>
-            </p>
+            } ?>
+        </p>
             
-        </div>   
-            </div>
+    </div>   
+</div>
         </div>   
         </ul>
 
@@ -175,6 +197,9 @@ if (osTicket::is_ie())
         } ?>
 </div>
 </nav>
+
+
+
 
         <?php
         if($ost->getError())

@@ -32,9 +32,9 @@
   color: #333333;
   background-color: #ffffff;
   margin: 0;
-  padding: 0.9em;
+  /* padding: 0.9em; */
   word-wrap: break-word;
-  overflow-x: auto;
+  /* overflow-x: auto; */
 }
 .thread-body a:focus {
   outline: thin dotted;
@@ -145,8 +145,13 @@
   clip: rect(0 0 0 0);
   border: 0;
 }
+/* In order to streamline */
 .thread-body p {
-  margin: 0 0 10px;
+  /* margin: 0 0 10px; */
+  font-size: 30pt;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color:#000;
+  max-width: 100%;
 }
 .thread-body .lead {
   margin-bottom: 20px;
@@ -397,8 +402,9 @@
 .thread-body dl,
 .thread-body blockquote,
 .thread-body pre {
-	font-size: 14px;
-	line-height: 1.5rem;
+	font-size: 16px;
+  line-height: 1.5rem;
+  margin-bottom: 150px !important;
 }
 
 /* Adjust plain/text messages posted as <pre> in the thread body to show in
