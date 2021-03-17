@@ -1084,7 +1084,7 @@ img.sign-in-image {
 .login-box {
     width:40%;
     display:table-cell;
-    box-shadow: 12px 0 15px -15px rgba(0,0,0,0.4);
+    /* box-shadow: 12px 0 15px -15px rgba(0,0,0,0.4); */
     padding:15px;
 }
 .rtl .login-box {
