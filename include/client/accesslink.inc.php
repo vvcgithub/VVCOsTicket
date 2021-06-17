@@ -9,18 +9,19 @@ if ($cfg->isClientEmailVerificationRequired())
 else
     $button = __("View Ticket");
 ?>
-<div class="row">
-    <div class="page-title">
-    <h1><?php echo __('Check Ticket Status'); ?></h1>
-        <p><?php
-        echo __('Please provide your email address and a ticket number.');
-        if ($cfg->isClientEmailVerificationRequired())
-            echo ' '.__('An access link will be emailed to you.');
-        else
-            echo ' '.__('This will sign you in to view your ticket.');
-        ?></p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="page-title">
+        <h1><?php echo __('Check Ticket Status'); ?></h1>
+            <p><?php
+            echo __('Please provide your email address and a ticket number.');
+            if ($cfg->isClientEmailVerificationRequired())
+                echo ' '.__('An access link will be emailed to you.');
+            else
+                echo ' '.__('This will sign you in to view your ticket.');
+            ?></p>
+        </div>
     </div>
-</div>
 
 <form action="login.php" method="post" id="clientLogin">
     <?php csrf_token(); ?>
@@ -68,3 +69,4 @@ if ($cfg->getClientRegistrationMode() != 'disabled'
         '<a href="open.php">','</a>');
 } ?>
 </p>
+</div>

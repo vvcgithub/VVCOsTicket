@@ -14,7 +14,8 @@ if (isset($user) && $user instanceof ClientCreateRequest) {
 $info = Format::htmlchars(($errors && $_POST)?$_POST:$info);
 
 ?>
-<div class="container">  
+<div class="container">
+<table width="800" class="padded">
     <h1><?php echo __('Account Registration'); ?></h1>
     <h3><?php echo __('Use the forms below to create or update the information we have on file for your account'); 
     ?>

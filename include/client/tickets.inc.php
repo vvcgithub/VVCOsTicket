@@ -137,6 +137,7 @@ $tickets->values(
 );
 
 ?>
+<div class="container-fluid">
 <div class="search well">
 <div class="flush-left">
 <form action="tickets.php" method="get" id="ticketSearchForm">
@@ -200,6 +201,7 @@ if ($closedTickets) {?>
     </small>
 </div>
 </h1>
+<div class="table-responsive">
 <table id="ticketTable" width="800" border="0" cellspacing="0" cellpadding="0">
     <caption><?php echo $showing; ?></caption>
     <thead>
@@ -269,6 +271,7 @@ if ($closedTickets) {?>
     ?>
     </tbody>
 </table>
+</div>
 <?php
 if ($total) {
     echo '<div>&nbsp;'.__('Page').':'.$pageNav->getPageLinks().'&nbsp;</div>';

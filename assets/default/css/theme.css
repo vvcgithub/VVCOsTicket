@@ -4,10 +4,6 @@ html {
   /* -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%; */
 }
-/* Full name input in registration*/
-#_bfec4c3e4a2526{
-  margin-left: 27px;
-}
 /* In order to strealine */
 .homepage p{
   font-size: 13pt;
@@ -55,6 +51,9 @@ html {
   .homepage-centered{
     width: 100%;
   }
+  .panel{
+    overflow-x: auto;
+  }
 }
 
 @media screen and (max-width: 992px) {
@@ -100,10 +99,6 @@ ol {
   margin: 1em 0;
   padding: 0 0 0 30px;
 }
-/* img {
-  border: 0;
-  vertical-align: middle;
-} */
 form {
   margin: 0;
 }
@@ -197,15 +192,34 @@ fieldset {
   color: #ffffff;
   text-decoration: underline;
 }
+.login-link{
+  color: #0054a6;
+}
+.login-link:hover{
+  color: #0054a6;
+}
+.forgot-pw{
+  padding-left:15px;
+  padding-top:10px;
+  display:inline-block;
+  color: #0054a6 !important;
+}
+#home-links{
+  color: #ffffff;
+}
+#home-links:hover{
+  text-decoration: underline;
+}
 a, .link {
-  color: #00AEEF;
+  color: #0054a6;
   text-decoration: none;
   display: inline;
   margin-bottom: 1px;
 }
 a:hover, .link:hover {
-   text-decoration: none;
+  text-decoration: underline;
 }
+
 h1 {
   color: #204a7e;
   font-weight: bold;
@@ -390,21 +404,22 @@ h2, .subject {
   padding-bottom: 10px;
   font-weight: bold;
 }
-
 .page-title-open{
-  /* margin-right: 15px; */
-  margin-left: 30px;
-  /* padding-bottom: 10px;
-  font-weight: bold;
-  text-align: center; */
+  text-align: center;
 }
 .navbar-brand {
   padding: 0px;
 }
 .navbar-brand>img {
-  height: 100%;
   padding: 11px;
-  width: auto;
+  width: 550px;
+}
+@media screen and (max-width: 992px) {
+	.navbar-brand>img {
+    height: 100%;
+    padding: 11px;
+    width: auto;
+	} 
 }
 .navbar-light{
   background-color: #ffffff;
@@ -526,14 +541,13 @@ h2, .subject {
 #nav li a.tickets {
   background-image: url('../images/icons/tix.png');
 }
-#content {
-  padding: 10px 0;
-  /* margin: 0 20px;  */
-  margin-top: 10px;
+/* #content {
+  padding: 20px 0;
+  margin: 0 20px;
   height: auto !important;
   height: 350px;
-  min-height: 350px;
-}
+  min-height: 350px; 
+} */
 #footer {
     position: fixed;
     height: 50px;
@@ -544,6 +558,7 @@ h2, .subject {
     margin-bottom: 0px;
     text-align: center;
     color: #ffffff;
+    z-index: 100;
 }
 
 #footer a {
@@ -563,8 +578,6 @@ h2, .subject {
   margin: 0 auto;
   background: url('../images/poweredby.png') top left no-repeat;
   background-size: auto 20px;
-}
-.front-page-button {
 }
 .main-content {
   width: 565px;
@@ -755,14 +768,22 @@ label.required, span.required {
 #clientLogin div label.required {
   text-align: left;
 }
-#ticketForm div input,
 #clientLogin div input,
-#ticketForm div textarea,
 #clientLogin div textarea {
   width: auto;
   border: 1px solid #aaa;
   background: #fff;
   display: block;
+}
+#ticketForm div input,
+#ticketForm div textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 #ticketForm div input[type=file],
 #clientLogin div input[type=file] {
@@ -952,6 +973,9 @@ label.required, span.required {
   border: 1px solid #aaa;
   border-left: none;
   border-bottom: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100% !important;
 }
 #ticketTable caption {
   padding: 5px;
@@ -1081,6 +1105,9 @@ img.sign-in-image {
     width: auto;
     height: auto;
 }
+.login-form{
+  margin-top: 50px;
+}
 .login-box {
     width:40%;
     display:table-cell;
@@ -1185,6 +1212,12 @@ table.custom-data .headline {
     border-bottom: 2px solid rgba(0,0,0,0.15);
     font-weight: bold;
     background-color: white;
+}
+#ticketInfo{
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  /* border: 1px solid #ddd; */
 }
 #ticketInfo h1 {
     padding-bottom: 10px;

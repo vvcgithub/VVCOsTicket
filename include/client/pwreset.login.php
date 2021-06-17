@@ -3,6 +3,7 @@ if(!defined('OSTCLIENTINC')) die('Access Denied');
 
 $userid=Format::input($_POST['userid']);
 ?>
+<div class="container">
 <h1><?php echo __('Forgot My Password'); ?></h1>
 <p><?php echo __(
 'Enter your username or email address again in the form below and press the <strong>Login</strong> to access your account and reset your password.');
@@ -19,7 +20,8 @@ $userid=Format::input($_POST['userid']);
         <input id="username" type="text" name="userid" size="30" value="<?php echo $userid; ?>">
     </div>
     <p>
-        <input class="btn" type="submit" value="Login">
+        <input class="btn" style="color: #000" type="submit" value="Login">
     </p>
     </div>
 </form>
+</div>

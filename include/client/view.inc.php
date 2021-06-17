@@ -29,8 +29,8 @@ if ($thisclient && $thisclient->isGuest()
     </div>
 
 <?php } ?>
-
-<table width="800" cellpadding="1" cellspacing="0" border="0" id="ticketInfo">
+<div class="container">
+<table cellpadding="1" cellspacing="0" border="0" id="ticketInfo">
     <tr>
         <td colspan="2" width="100%">
             <h1>
